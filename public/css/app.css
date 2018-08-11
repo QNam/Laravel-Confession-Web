@@ -1,0 +1,122 @@
+body{
+	background-color: #fafafa;
+	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+	color: #50596c;
+}
+.bg-blue{background-color: #005da0; color: #fff;}
+.block{padding: 2%; margin: 5px;}
+.main-container{min-height:100%; position:relative;}
+a{color: #000000;}
+a:hover{ cursor: pointer; text-decoration: none;}
+.card-text{font-size: 14.5px!important;}
+i{padding-right: 2px;}
+.padding-0{padding: 0px!important;}
+.mr-top-5{margin-top: 5px; }
+label{
+	margin-bottom: .2rem;
+}
+
+.card-body{
+	padding: 14px!important;
+}
+.nav-link {
+	border-top: none!important;
+	border-right: none!important;
+	border-left: none!important;
+	outline: none!important;
+}
+.nav-tabs{border: none;}
+
+.active{
+	border-bottom: solid 2px #005da0!important;  
+}
+
+.btn-login{
+	padding: 3px 9px;
+	background-color: #0087be;
+	color: #fff;
+	border: none!important;
+}
+.img-preview{
+	height: 120px;
+	width: auto;
+	border-style: dashed;
+	border-color: #ccc;
+	max-width: 90%;
+	margin-top: 5px;
+}
+.wrap{
+	display: block;
+	padding: .75%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+.bg-primary-c{
+	color: #fff;
+    background-color: #4267b2;
+    border-color: #337ab7;
+}
+.card-body{padding: 10px!important; padding-bottom: 5px!important;}
+.main{
+	display: block;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	padding-bottom: 1%;
+	border-radius: 15px;
+}
+.avatar{
+	border-radius: 50%; 
+	width: 35px; 
+	height: auto;
+	border-width: 0.5px;
+	border-style: solid;
+	padding: 3px;
+}
+.emojionearea-editor:not(.inline) {
+  max-height: 8em!important;
+  min-height: 6em!important;
+}
+.social{
+	font-weight: 700;
+	font-size: 13px;
+	display: inline-block;
+}
+
+.meta{
+	padding: 7px;
+	padding-left: 0px;
+	color: #50596c;
+	font-size: 14px;
+}
+.social a{
+	padding: 7px;
+	padding-left: 0px;
+	color: #50596c;
+}
+.name{
+	font-size: 14px;
+	font-weight: bold;
+}
+#comment{
+	padding:2%;
+}
+.comment-content{
+	display: inline-block;
+	background-color: #f6f7f9;
+	border-radius: 18px;
+	padding: 1.5%;
+	max-width: 100%;
+}
+.post-number{
+	color: #4788ef;
+	text-decoration: underline;
+}
+
+/* FOOTER STYLE */
+.footer{
+	background-color: #333;
+}
+
+.footer p a, .footer p{
+	color: #fff;
+}
