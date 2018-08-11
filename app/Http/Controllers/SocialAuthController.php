@@ -9,11 +9,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 use Socialite;
-use App\Http\Model\User;
+use App\Model\User;
 
 class SocialAuthController extends Controller
 {
-   // private $redirectTo = '/';
+   private $redirectTo = '/';
+   private $avatarStoragePath = '\uploads\avatars\\';
 
     public function redirectToProvider($provider)
     {
@@ -29,37 +30,36 @@ class SocialAuthController extends Controller
         $authUser = $this->findOrCreateUser($user, $provider);
         Auth::login($authUser,true);
 
-        Auth::user()->avatar = $this->getAvatarUser(Auth::user());
-
-        var_dump(Auth::user());
         return redirect()->back(); 
     }
 
 
-    private function getAvatarUser($user)
+    private function getAvatarUser(ProviderUser $user)
     {
-        $fileContents  =   file_get_contents($user->avatar);
-        File::put(storage_path() . '\uploads\avatars\\' . $user->id . ".jpg", $fileContents);
+        $fileName   =   $user->getId() . '.jpg';  
+        $path       =   storage_path('app\\' . $this->avatarStoragePath . $fileName);
 
-        //To show picture 
-        $avatar    =   storage_path('uploads/avatars/' . $user->id . ".jpg");
+        $fileContents  =   file_get_contents($user->getAvatar());
+       
+        //upload file
+        File::put($path, $fileContents);
 
-        return $avatar;
+        return $fileName;
     }
 
 
-    public function findOrCreateUser($user, $provider)
+    public function findOrCreateUser(ProviderUser $user, $provider)
     {
-        $authUser = User::where('provider_user_id', $user->id)->first();
+        $authUser = User::where('provider_user_id', $user->getId())->first();
         if ($authUser) {
             return $authUser;
         }
         return User::create([
-            'user_name' => $user->name,
-            'email'     => $user->email,
+            'user_name' => $user->getName(),
+            'email'     => $user->getEmail(),
             'provider'  => $provider,
-            'avatar'    => $user->avatar,
-            'provider_user_id' => $user->id
+            'avatar'    => $this->getAvatarUser($user),
+            'provider_user_id' => $user->getId()
         ]);
     }
 

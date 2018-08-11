@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Redirect;
 
-use App\Http\Model\Post;
-use App\Http\Model\Comment;
+use App\Model\Post;
+use App\Model\Comment;
 
 class PostController extends Controller
 {
@@ -28,6 +28,9 @@ class PostController extends Controller
 
     public function index()
     {
+        // $fileContents  =   file_get_contents('https://graph.facebook.com/v3.0/197941324405337/picture?type=normal');
+        // var_dump ($fileContents);
+        // die();
         $posts = Post::orderBy('post_number', 'desc')->paginate(5);
 
         $posts = $this->templatePostInView($posts,$this->textPerPost,true);
@@ -159,6 +162,7 @@ class PostController extends Controller
     {
         $post       =   Post::find($id);
         $path = storage_path('app\\'.$this->fileStoragePath. $post->post_image);
+
         if (!File::exists($path)) {
             $post->post_image = null;
         }
@@ -166,6 +170,7 @@ class PostController extends Controller
         //get comment of post
         $comment    =   new Comment(); 
         $cmts       =   $comment->getCommentOfPost($id);
+        
         //+ 1 view when user view post
         $countView = Post::find($id)->countView;
         $doUpdateCountView  =   Post::where('post_id', $id)->update(['countView' => $countView + 1]);    

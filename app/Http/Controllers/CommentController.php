@@ -7,8 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CommentRequest as CommentRequest;
 
-use App\Http\Model\Comment;
-use App\Http\Model\Post;
+use App\Model\Comment;
+use App\Model\Post;
 
 class CommentController extends Controller
 {

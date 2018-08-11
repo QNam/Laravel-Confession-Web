@@ -56,7 +56,7 @@
         @foreach ($cmts as $cmt)
         <div class="row" style="margin-bottom: 5px;">
           <div class="col-1" style="padding-top: 4px;">
-            <img src="{{asset('img/avatar.png')}}" alt="" class="avatar">
+            <img src="{{ route('avatarPath', ['filename' => $cmt->avatar] ) }}" alt="" class="avatar">
           </div>   
 
           <div class="col-11">

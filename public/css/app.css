@@ -69,8 +69,7 @@ label{
 	width: 35px; 
 	height: auto;
 	border-width: 0.5px;
-	border-style: solid;
-	padding: 3px;
+	
 }
 .emojionearea-editor:not(.inline) {
   max-height: 8em!important;
