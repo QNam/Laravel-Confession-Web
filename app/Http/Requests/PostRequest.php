@@ -25,16 +25,20 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'content' => 'required|string|max:3000',
+            'content' => 'bail|required|string|max:3000',
+            'image' => 'bail|image|mimes:jpeg,png,jpg,gif,svg|max:3072|file',
         ];
     }
 
 
-    public function message()
+    public function messages()
     {
         return [
             'content.required'  => 'Nội dung post không được bỏ trống !',
-            'content.max'       => 'Nội dung tối đa 3000 kí tự !',
+            'content.max'       => 'Nội dung tối đa :max kí tự !',
+            'image.image'       => 'File tải lên không phải là ảnh !',
+            'image.max'         => 'Ảnh tải lên tối đa 3MB',
+            'image.file'        => 'Ảnh tải lên không thành công !',
         ];
     }
 }

@@ -1,12 +1,23 @@
 <!-- ADD POST -->
 <div class="card main">
+  
+  @if ($errors->any())
+  <div class="alert alert-danger" role="alert">
+
+    <strong>Lỗi !</strong> 
+    @foreach ($errors->all() as $error)
+     <li>{{ $error }}</li>
+    @endforeach
+
+  </div>
+  @endif
 
   <div class="card-header" style="border-top-right-radius: 15px; border-top-left-radius: 15px;"><h6><i class="fas fa-pencil-alt"></i> Đăng bài</h6></div>
 
   <div class="card-body">
     <form action="{{url('post/store')}}" method="POST" enctype="multipart/form-data">
       @csrf
-      <textarea cols="30" id="post-input" class="form-control wrap" name="content"></textarea>
+      <textarea cols="30" id="post-input" class="form-control wrap" name="content" required>{{ old('content') }} </textarea>
 
       <button  type='button' class="btn btn-sm btn-file" style="border-radius: 20px;">
         <label for="imgInp"><i class="far fa-image"></i> Đăng ảnh</label>

@@ -8,6 +8,7 @@ body{
 .main-container{min-height:100%; position:relative;}
 a{color: #000000;}
 a:hover{ cursor: pointer; text-decoration: none;}
+li{list-style: none;}
 .card-text{font-size: 14.5px!important;}
 i{padding-right: 2px;}
 .padding-0{padding: 0px!important;}

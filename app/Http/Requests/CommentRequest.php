@@ -25,12 +25,12 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'comment' => 'required|string|max:400',
+            'comment' => 'bail|required|string|max:400',
         ];
     }
 
 
-    public function message()
+    public function messages()
     {
         return [
             'comment.required'  => 'Nội dung comment không được bỏ trống !',
